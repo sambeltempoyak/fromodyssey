@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-15T00:34:21+00:00",
- "count": 3,
+ "updated": "2026-11-15T22:48:00+00:00",
+ "count": 4,
  "sources": 3,
  "report": [
   {
@@ -139,6 +139,22 @@
    "first_seen": "2026-11-15",
    "amount": "€2000",
    "applicant": null
+  },
+  {
+   "id": "rca7de5b60c81",
+   "title": "Harry Frank Guggenheim Emerging Scholar Awards for PhD Candidates",
+   "link": "https://www.scholars4dev.com/harry-frank-guggenheim-foundation-dissertation-fellowships/",
+   "org": "Guggenheim Foundation",
+   "source": "Scholars4Dev — beasiswa untuk negara berkembang",
+   "type": "phd",
+   "summary": "Harry Frank Guggenheim Foundation PhD Degree Deadline: 31 Jan 2027 (annual) Study in: any Country Award starts 1 Sept 2027 Brief description: The Harry Frank Guggenheim Foundation (HFG) gives Emerging Scholar Awards to PhD candidates in their final year who are writing a dissertation on violence. The award helps them finish the dissertation on time. It does not pay for doctoral research itself, so it is meant for students whose fieldwork is already done. These awards were previously called the Harry Frank Guggenheim Dissertation Fellowships. Host Institution(s): Any college or university, in any country Level/Field of study: PhD dissertations in the natural and social sciences and allied disciplines on violence, including war, crime, terrorism, family and intimate-partner relationships, climate instability and competition for natural resources, racial, ethnic and religious conflict, and ",
+   "published": "2026-11-15",
+   "deadline": "2027-01-31",
+   "intl": true,
+   "location": "",
+   "first_seen": "2026-11-15",
+   "amount": "US$25,000",
+   "applicant": "individu"
   }
  ]
 }
