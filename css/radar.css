@@ -1,0 +1,73 @@
+/* Peluang (radar) — memakai token di css/theme.css. Dasar .opp/.verdict/.facts/.board ada di style.css. */
+.radar .small, .rd-report .small { font-size: 13px; }
+.radar .tiny { font-size: 12px; margin: 6px 0 0; }
+
+/* saringan & chip */
+.rd-filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 6px; }
+.rd-filters .chip { min-height: 44px; padding: 6px 14px; font-size: 14px; }
+.rd-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.chip.t-phd { background: var(--buih); border-color: var(--kolam); color: var(--toska-tua); }
+.chip.t-grant { background: var(--good-bg, #E4EDD9); border-color: var(--good-line, #C6D7B4); color: var(--good); }
+.chip.t-fellowship { background: var(--warn-bg, #F5EAD2); border-color: var(--warn-line, #E6D2A6); color: var(--warn); }
+.chip.t-course { background: var(--paper); }
+.chip.a-lembaga { background: var(--kapur); border-color: var(--tanah); color: var(--rimba); }
+.chip.a-individu { background: var(--card); border-color: var(--zaitun); color: var(--rimba); }
+.chip.a-keduanya { background: var(--card); border-color: var(--toska); color: var(--toska-tua); }
+.chip.water { color: var(--rimba); }
+
+/* kalimat "Nyambung dengan" */
+.why-line { font-size: 13.5px; color: var(--lumut); margin: 6px 0 0; }
+.why-line.big { font-size: 15px; margin: 0 0 12px; }
+.starthere .why-line { margin-top: 2px; }
+
+/* laporan robot */
+.rd-report { margin: 4px 0 6px; }
+.rd-report summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; }
+.rd-report ul { margin: 6px 0 0; padding-left: 0; }
+.rd-report li { padding: 2px 0; }
+
+/* tombol di kartu cukup besar untuk jari */
+.radar .opp .acts .btn, .radar .triage .btn, .radar .fcard .btn, .radar .tpl-list .btn { min-height: 44px; }
+.radar .opp .acts .btn.sm { min-height: 40px; }
+.btn.danger { color: var(--bad); border-color: var(--bad); }
+
+/* kalender musim */
+.cal-month { margin: 0 0 22px; }
+.cal-month h2 { font-family: var(--serif); font-size: 21px; margin: 0 0 4px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--line); box-shadow: 0 3px 0 -2px var(--line); }
+.cal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+.fcard { display: flex; flex-direction: column; gap: 6px; }
+.fcard h3 { margin: 4px 0 0; font-size: 16.5px; color: var(--head, var(--ink)); }
+.fcard .facts { grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 4px 0; }
+.fcard .row { margin-top: auto; padding-top: 6px; }
+
+/* rute */
+.route-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.route h3 { margin-top: 0; }
+.route p { font-size: 14.5px; }
+.route details summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; color: var(--link, var(--toska-tua)); }
+.route .steps li { font-size: 14px; margin: 4px 0; }
+.route-guide { grid-column: 1 / -1; border-radius: 18px 18px 18px 6px; background: var(--buih); border-color: var(--kolam); }
+.guide-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 6px 0 10px; }
+.guide-cols h4 { margin: 0 0 6px; font-size: 15px; }
+.guide-cols ul { margin: 0; padding-left: 18px; font-size: 14px; }
+.guide-cols li { margin: 4px 0; }
+
+/* pelacak */
+.tcard .rd-chips .chip { font-size: 11.5px; padding: 1px 8px; }
+.tpl-list { gap: 8px; }
+
+/* rincian */
+.radar .verdict .v-text { font-size: 15px; }
+.radar .quote { font-size: 13px; margin-top: 2px; }
+
+html[data-theme=dark] .chip.a-lembaga, html[data-theme=dark] .chip.a-individu, html[data-theme=dark] .chip.a-keduanya, html[data-theme=dark] .chip.t-course { background: var(--card); color: var(--ink); }
+html[data-theme=dark] .chip.t-phd { background: var(--card); color: var(--kolam); }
+html[data-theme=dark] .why-line { color: var(--ink); }
+html[data-theme=dark] .route-guide { background: var(--card); }
+html[data-theme=dark] .chip.water { color: var(--ink); }
+
+@media (max-width: 560px) {
+  .guide-cols { grid-template-columns: 1fr; }
+  .route-grid, .cal-grid { grid-template-columns: 1fr; }
+}

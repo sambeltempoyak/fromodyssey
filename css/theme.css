@@ -1,0 +1,91 @@
+/* fromodyssey — THEME TOKENS (owner: shell builder)
+   Palette from the Mata Jitu waterfall: jungle green, limestone, turquoise pool, a flash of rafflesia.
+   Every colour in the app reads these variables. Contrast is checked by tests/contrast.mjs (WCAG AA ≥ 4.5:1). */
+:root{
+  color-scheme:light;
+  /* ---- named palette (light) ---- */
+  --rimba:#1E2A22;      /* ink, deep jungle */
+  --lumut:#46502A;      /* moss */
+  --zaitun:#6B6E45;     /* olive */
+  --toska:#22756E;      /* primary, turquoise pool (white text OK) */
+  --toska-tua:#17524E;  /* primary, deeper */
+  --kolam:#7FC4B8;      /* light pool */
+  --buih:#DDF0EA;       /* foam */
+  --kapur:#F2EEE2;      /* limestone page */
+  --kartu:#FBF9F2;      /* card */
+  --batu:#B6B4A1;       /* stone */
+  --garis:#DDD8C6;      /* line */
+  --tanah:#8A6B43;      /* earth */
+  --oker:#A97C24;       /* ochre (accent, not for small text) */
+  --rafflesia:#C9563A;  /* accent / bad (not for small text) */
+  --muted:#5B6452;
+
+  /* ---- roles ---- */
+  --ink:var(--rimba);
+  --head:#1A3A2E;               /* headings: jungle with a hint of pool */
+  --line:var(--garis);
+  --card:var(--kartu);
+  --paper:var(--kapur);
+  --field:#FFFEFA;              /* inputs */
+  --primary:var(--toska);
+  --primary-strong:var(--toska-tua);
+  --on-primary:#FFFFFF;
+  --link:#1D6A63;
+  --good:#3E6A33; --good-bg:#E4EDD9; --good-line:#C6D7B4;
+  --warn:#8A5A12; --warn-bg:#F5EAD2; --warn-line:#E6D2A6;
+  --bad:#A8432B;  --bad-bg:#F6E3DB; --bad-line:#EBC4B6;
+  --deep:#1B2A21;               /* sidebar, tab bar, dark cards */
+  --deep-2:#17524E;
+  --on-deep:#ECEFE4;
+  --on-deep-muted:#BFCBBE;
+  --focus:rgba(34,117,110,.28);
+
+  /* ---- template names kept so older CSS keeps working ---- */
+  --forest:var(--head);
+  --indigo:var(--toska);
+  --sage:var(--zaitun); --sky:var(--kolam); --blush:#E9C3B3; --mint:var(--buih); --cream:var(--kapur);
+  --rain:#C9D9CF; --vapor:var(--garis); --dew:#EEE6D0; --water:var(--buih);
+
+  /* gradients (were in the old skin file) */
+  --g-main:linear-gradient(135deg,#22756E 0%,#46502A 100%);
+  --g-warm:linear-gradient(135deg,#EEE6D0 0%,#E6EEDF 52%,#DDF0EA 100%);
+  --g-deep:linear-gradient(165deg,#1B2A21 0%,#17403B 100%);
+  --g-pool:linear-gradient(180deg,#DDF0EA 0%,#F2EEE2 100%);
+
+  /* shape */
+  --r:16px; --r-sm:10px; --leaf:18px 18px 18px 6px;
+  --shadow:0 1px 2px rgba(30,42,34,.05),0 8px 24px rgba(30,60,50,.08);
+  --terrace:repeating-linear-gradient(180deg,var(--line) 0 1px,transparent 1px 4px);
+
+  /* type */
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --hand:'Caveat','Segoe Print','Comic Sans MS',cursive;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+
+/* Night: deep forest */
+html[data-theme=dark]{
+  color-scheme:dark;
+  --rimba:#E6EBDD; --lumut:#B8C48A; --zaitun:#AEB283; --toska:#6FC7BA; --toska-tua:#9AD9CE;
+  --kolam:#3E8F85; --buih:#173631; --kapur:#101812; --kartu:#18231C; --batu:#56634F; --garis:#2B3A30;
+  --tanah:#CBA77B; --oker:#E0B45A; --rafflesia:#EE8A6C; --muted:#A5B19C;
+
+  --head:#EEF2E6;
+  --field:#121C16;
+  --on-primary:#0E1A15;
+  --link:#7FD0C3;
+  --good:#A6CF92; --good-bg:#1D2E1E; --good-line:#33502F;
+  --warn:#E8BE6E; --warn-bg:#2E2716; --warn-line:#544521;
+  --bad:#F39A80;  --bad-bg:#33201A; --bad-line:#5A3427;
+  --deep:#0B120D; --deep-2:#123430;
+  --on-deep:#E6EBDD; --on-deep-muted:#A9B6A5;
+  --focus:rgba(111,199,186,.32);
+
+  --blush:#4A2E26; --rain:#A9B6A5; --dew:#252A1D; --water:#16302C;
+  --g-main:linear-gradient(135deg,#6FC7BA 0%,#B8C48A 100%);
+  --g-warm:linear-gradient(135deg,#252A1D 0%,#1B2A22 52%,#16302C 100%);
+  --g-deep:linear-gradient(165deg,#0B120D 0%,#10302C 100%);
+  --g-pool:linear-gradient(180deg,#14302B 0%,#101812 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.28);
+}

@@ -1,0 +1,72 @@
+name: Perbarui peluang dan terbitkan
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 22 * * *"   # tiap hari 22:17 UTC = 05:17 WIB, sebelum Berta bangun
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  perbarui-dan-terbitkan:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Perlu jalankan robot?
+        id: perlu
+        run: |
+          if [ "${{ github.event_name }}" != "push" ]; then
+            echo "jalan=true" >> "$GITHUB_OUTPUT"
+          elif python3 -c "import json,sys; d=json.load(open('data/opportunities.json')); sys.exit(0 if not d.get('items') else 1)" 2>/dev/null; then
+            echo "jalan=true" >> "$GITHUB_OUTPUT"   # push, tapi daftarnya masih kosong
+          elif [ ! -s data/opportunities.json ]; then
+            echo "jalan=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "jalan=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Robot membaca feed
+        if: steps.perlu.outputs.jalan == 'true'
+        continue-on-error: true
+        run: python3 scripts/update_radar.py --root .
+
+      - name: Simpan data/opportunities.json bila berubah
+        if: steps.perlu.outputs.jalan == 'true'
+        continue-on-error: true
+        run: |
+          if git diff --quiet -- data/opportunities.json; then
+            echo "Tidak ada perubahan."
+          else
+            git config user.name "fromodyssey-robot"
+            git config user.email "fromodyssey-robot@users.noreply.github.com"
+            git add data/opportunities.json
+            git commit -m "Robot: perbarui peluang $(date -u +%Y-%m-%d)"
+            git pull --rebase --autostash origin main || true
+            git push origin HEAD:main
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

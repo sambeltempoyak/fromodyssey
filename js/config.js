@@ -1,0 +1,7 @@
+// Konfigurasi publik. Tidak ada yang rahasia di sini: client id OAuth hanya mengenalkan aplikasi ke Google,
+// dan URL skrip Drive tidak berguna tanpa akun Google yang terdaftar di skrip.
+export const CFG = {
+  GOOGLE_CLIENT_ID: '685495299639-os2ssbg30eq3e94lcijrh7apklb8pa01.apps.googleusercontent.com',
+  DRIVE_URL: '',   // tempel URL /exec Apps Script di sini setelah deploy (README, Bagian 2)
+  VERSION: '1.0 · 15 Nov 2026',
+};

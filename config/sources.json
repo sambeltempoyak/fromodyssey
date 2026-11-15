@@ -1,0 +1,104 @@
+{
+  "_help": "Feed yang dibaca robot harian (scripts/update_radar.py). Tiap feed: name, url (RSS/Atom), opsional type (phd|grant|fellowship|course), org, all:true (simpan semua tanpa saringan kata), relevance:\"loose\" (satu kata kunci di isi sudah cukup), off:true (matikan sementara), note (catatan untuk manusia, tidak dibaca robot). Kata di 'relevance' dicocokkan di AWAL kata; item disimpan bila ada satu di judul atau dua kata berbeda di isi. 'exclude_titles' = potongan regex untuk judul yang dibuang (admin, fasilitas, akademisi senior); judul PhD/hibah/fellowship tidak ikut terbuang, kecuali jelas postdoc/dosen. Satu feed rusak tidak menghentikan yang lain: lihat 'report' di data/opportunities.json atau log Actions untuk tahu feed mana yang bekerja. Coba alamat feed baru di browser dulu: harus tampil XML, bukan halaman web.",
+  "relevance": [
+    "anthropolog", "antropolog", "ethnograph", "etnograf", "ethnolog", "etnolog", "fieldwork",
+    "indigen", "masyarakat adat", "komunitas adat", "adat", "first nations", "orang asli", "orang rimba", "customary",
+    "decoloni", "dekoloni", "postcoloni", "pluriver", "ontolog", "cosmopolitic",
+    "gender", "feminis", "sexualit", "seksualitas", "perempuan", "queer",
+    "indigenous education", "pendidikan adat", "pedagog", "literac", "literasi",
+    "soundscape", "acoustic ecolog", "sound studies", "listening", "ethnomusicolog", "etnomusikolog", "bunyi",
+    "multispecies", "more-than-human", "planetary", "anthropocene", "environmental humanities", "extractiv", "forest", "hutan",
+    "southeast asia", "asia tenggara", "indonesia", "asia-pacific", "asia pacific", "nusantara", "papua", "sumba", "borneo", "kalimantan",
+    "multimodal", "visual anthropolog", "ethnographic film", "documentary", "dokumenter", "creative method", "arts-based",
+    "agrarian", "agraria", "rural", "peasant", "land rights", "social science", "humanities", "ilmu sosial", "humaniora"
+  ],
+  "feeds": [
+    {
+      "name": "FundsforNGOs — tag Indonesia",
+      "url": "https://www2.fundsforngos.org/tag/indonesia/feed/",
+      "type": "grant",
+      "relevance": "loose",
+      "note": "Halaman tag-nya ada (terlihat di hasil pencarian, Nov 2026); alamat /feed/ adalah pola standar WordPress, belum dicoba robot."
+    },
+    {
+      "name": "FundsforNGOs — tag indigenous peoples",
+      "url": "https://www2.fundsforngos.org/tag/indigenous-peoples/feed/",
+      "type": "grant",
+      "relevance": "loose",
+      "note": "DUGAAN: nama tag belum dipastikan. Kalau laporan bilang 404, cari nama tag yang benar di situsnya atau set off:true."
+    },
+    {
+      "name": "Opportunity Desk — tag anthropology",
+      "url": "https://opportunitydesk.org/tag/anthropology/feed/",
+      "relevance": "loose",
+      "note": "Halaman tag-nya ada (terlihat di hasil pencarian, Nov 2026); /feed/ pola standar WordPress, belum dicoba robot."
+    },
+    {
+      "name": "Opportunity Desk — fellowships",
+      "url": "https://opportunitydesk.org/category/fellowships/feed/",
+      "type": "fellowship",
+      "note": "Halaman kategorinya ada (terlihat di hasil pencarian); feed belum dicoba. Banyak item umum: saringan relevansi bekerja keras di sini."
+    },
+    {
+      "name": "Scholars4Dev — beasiswa untuk negara berkembang",
+      "url": "https://www.scholars4dev.com/feed/",
+      "note": "DUGAAN: situs WordPress beasiswa; alamat feed belum dipastikan."
+    },
+    {
+      "name": "HASTAC — jobs & opportunities",
+      "url": "https://hastac.hcommons.org/groups/jobs-and-opportunities/feed/",
+      "note": "Feed RSS ini muncul di hasil pencarian sebagai XML (Nov 2026). Isinya humaniora digital; hanya yang relevan yang tersimpan."
+    },
+    {
+      "name": "Wenner-Gren Foundation — berita",
+      "url": "https://wennergren.org/feed/",
+      "type": "grant",
+      "all": true,
+      "note": "DUGAAN: pola WordPress. Kalau gagal, set off:true; programnya juga ada di data/funders.json."
+    },
+    {
+      "name": "EASA — jobs & calls",
+      "url": "https://easaonline.org/feed/",
+      "note": "DUGAAN: situs EASA tampak WordPress; alamat feed belum dipastikan."
+    },
+    {
+      "name": "H-Net Job Guide",
+      "url": "https://www.h-net.org/jobs/rss.php",
+      "note": "DUGAAN: format alamat RSS H-Net belum bisa dipastikan. Kalau 404, scout mingguan menutupi H-Net lewat pencarian web."
+    },
+    {
+      "name": "FindAPhD — anthropology",
+      "url": "https://www.findaphd.com/phds/anthropology/?rss",
+      "type": "phd",
+      "note": "DUGAAN: FindAPhD tidak mendokumentasikan alamat RSS publik yang bisa kupastikan. Kalau gagal, pakai alert email FindAPhD (tab Cari cepat) dan set off:true."
+    },
+    {
+      "name": "EURAXESS — jobs",
+      "url": "https://euraxess.ec.europa.eu/jobs/feed",
+      "note": "DUGAAN: alamat RSS EURAXESS belum bisa dipastikan. Kalau gagal, set off:true; scout mingguan mencari EURAXESS lewat web."
+    },
+    {
+      "name": "AcademicTransfer (Belanda)",
+      "url": "https://www.academictransfer.com/en/jobs/rss/",
+      "type": "phd",
+      "note": "DUGAAN: belum ketemu bukti AcademicTransfer punya RSS. Kemungkinan besar gagal: set off:true kalau laporan bilang 404/bukan feed."
+    }
+  ],
+  "_not_read_by_the_robot": [
+    "ANU jobs & beasiswa: tidak ketemu RSS publik (Nov 2026). Pakai tab Cari cepat dan scout mingguan.",
+    "jobs.ac.uk: halaman feed ada, tetapi pada Nov 2026 situs ini menolak pembaca otomatis (catatan template lama). Bisa dicoba: https://www.jobs.ac.uk/feeds/subject-areas/social-sciences-and-social-care",
+    "Devex dan LinkedIn tidak bisa dibaca robot."
+  ],
+  "exclude_titles": [
+    "administrat", "coordinator", "secretar", "receptionist", "\\bporter", "cleaner", "cater", "nursery",
+    "accounts? (assistant|officer|manager)", "finance", "payroll", "\\bhr\\b", "human resources", "recruit",
+    "\\blegal\\b", "\\bit (support|architect|officer)", "software", "developer", "engineer",
+    "facilit", "estates", "security", "librar", "admissions", "\\bevents?\\b", "communications officer", "marketing",
+    "fundrais", "advancement", "alumni", "property", "health and safety", "executive assistant", "\\bpa to\\b",
+    "director", "manager", "head of", "dean", "lecturer", "professor", "post[- ]?doc", "postdoctoral", "teaching fellow",
+    "senior research fellow", "reader in", "\\bchair\\b", "tenure", "nurs", "clinical", "medical", "pharmac"
+  ],
+  "location_words": ["Australia", "Netherlands", "Belanda", "Indonesia", "Amsterdam", "Leiden", "Canberra"],
+  "keep_days": 90,
+  "max_items": 400
+}
