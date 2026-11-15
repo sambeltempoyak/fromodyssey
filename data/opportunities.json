@@ -1,7 +1,144 @@
 {
- "updated": null,
- "count": 0,
- "sources": 0,
- "report": [],
- "items": []
+ "updated": "2026-11-15T00:19:46+00:00",
+ "count": 3,
+ "sources": 3,
+ "report": [
+  {
+   "name": "FundsforNGOs — tag Indonesia",
+   "count": 0,
+   "ok": false,
+   "error": "403: situs menolak robot"
+  },
+  {
+   "name": "FundsforNGOs — tag indigenous peoples",
+   "count": 0,
+   "ok": false,
+   "error": "403: situs menolak robot"
+  },
+  {
+   "name": "Opportunity Desk — tag anthropology",
+   "count": 3,
+   "ok": true,
+   "error": "",
+   "read": 10,
+   "dropped_admin": 2,
+   "dropped_irrelevant": 5
+  },
+  {
+   "name": "Opportunity Desk — fellowships",
+   "count": 0,
+   "ok": true,
+   "error": "",
+   "read": 10,
+   "dropped_admin": 0,
+   "dropped_irrelevant": 10
+  },
+  {
+   "name": "Scholars4Dev — beasiswa untuk negara berkembang",
+   "count": 2,
+   "ok": true,
+   "error": "",
+   "read": 10,
+   "dropped_admin": 0,
+   "dropped_irrelevant": 8
+  },
+  {
+   "name": "HASTAC — jobs & opportunities",
+   "count": 0,
+   "ok": false,
+   "error": "bukan feed RSS/Atom (mungkin halaman web biasa atau halaman blokir)"
+  },
+  {
+   "name": "Wenner-Gren Foundation — berita",
+   "count": 0,
+   "ok": true,
+   "error": "",
+   "read": 0,
+   "dropped_admin": 0,
+   "dropped_irrelevant": 0
+  },
+  {
+   "name": "EASA — jobs & calls",
+   "count": 2,
+   "ok": true,
+   "error": "",
+   "read": 9,
+   "dropped_admin": 0,
+   "dropped_irrelevant": 7
+  },
+  {
+   "name": "H-Net Job Guide",
+   "count": 0,
+   "ok": false,
+   "error": "HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+  },
+  {
+   "name": "FindAPhD — anthropology",
+   "count": 0,
+   "ok": false,
+   "error": "403: situs menolak robot"
+  },
+  {
+   "name": "EURAXESS — jobs",
+   "count": 0,
+   "ok": false,
+   "error": "404: alamat feed tidak ada (ganti atau matikan feed ini)"
+  },
+  {
+   "name": "AcademicTransfer (Belanda)",
+   "count": 0,
+   "ok": false,
+   "error": "404: alamat feed tidak ada (ganti atau matikan feed ini)"
+  }
+ ],
+ "items": [
+  {
+   "id": "rf60ddd4e1273",
+   "title": "Top 10+ International Scholarships offered by Global Organizations, Institutions, and Foundations",
+   "link": "https://www.scholars4dev.com/scholarships-by-global-institutions-organizations-foundations/",
+   "org": "",
+   "source": "Scholars4Dev — beasiswa untuk negara berkembang",
+   "type": "grant",
+   "summary": "©iStock.com/Rawpixel Intergovernmental organizations, development banks and international foundations offer some of the best-known scholarships for international students. Many are fully funded, and many are aimed at students from developing countries who want to study abroad or in their own region. scholars4dev.com lists the top 10+ international scholarships offered by global organizations, institutions and foundations below. International Scholarships by Intergovernmental Organizations » Erasmus Mundus Scholarships (European Union) Funded by the European Union, Erasmus Mundus Joint Masters give full scholarships to students from all over the world, including a monthly allowance of €1,400, and students study in at least two countries during the programme. The scholarships cover a wide range of joint Master’s programmes in science, engineering, social sciences, humanities and business. ",
+   "published": "2026-11-14",
+   "deadline": null,
+   "intl": true,
+   "location": "Australia",
+   "first_seen": "2026-11-15",
+   "amount": "€10,000",
+   "applicant": "keduanya"
+  },
+  {
+   "id": "r20380401a974",
+   "title": "2013 grants awarded",
+   "link": "https://easaonline.org/about-networks/grants-awarded/2013-grants-awarded-2/",
+   "org": "",
+   "source": "EASA — jobs & calls",
+   "type": "grant",
+   "summary": "Anthropology and Mobility (ANTHROMOB): €2800 Anthropology of Law and Rights: €1800 Anthropology of Religion: €2300 Anthropology of Security: €2300 Anthropology of Social Movements: €2800 Europeanist: €1900 MAYS, Medical Anthropology Young Scholars: €2800 Media anthropology: €1000 Mediterraneanist (MedNet): €2000 PACSA: €2400 Teaching Anthropology Network : €1600 VANEASA – Visual Anthropology: €1300",
+   "published": "2026-10-28",
+   "deadline": null,
+   "intl": null,
+   "location": "",
+   "first_seen": "2026-11-15",
+   "amount": "€2800",
+   "applicant": "individu"
+  },
+  {
+   "id": "r2f4fe24d373b",
+   "title": "2015 grants awarded",
+   "link": "https://easaonline.org/about-networks/grants-awarded/2015-grants-awarded-2/",
+   "org": "",
+   "source": "EASA — jobs & calls",
+   "type": "grant",
+   "summary": "Applied Anthropology Network: €2000 Anthropology and Social Movements: €2000 Anthropology of Economy Network: €2000 Anthropology and Mobility (AnthroMob): €2000 European Network for Queer Anthropology: €1926 Future Anthropologies Network: €2000 Medical Anthropology Network: €2000 Media Anthropology Network: €2000 Network of Ethnographic Theory: €2000 PACSA: €2000 TAN: €2000 VANEASA: €2000",
+   "published": "2026-10-28",
+   "deadline": null,
+   "intl": null,
+   "location": "",
+   "first_seen": "2026-11-15",
+   "amount": "€2000",
+   "applicant": null
+  }
+ ]
 }
