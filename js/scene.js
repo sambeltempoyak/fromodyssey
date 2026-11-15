@@ -1,51 +1,37 @@
 // Beranda "Rimba": lukisan Ejak (Multispesies) yang hidup.
-// Teknik: satu gambar lukisan sebagai latar + "tambalan" (potongan lukisan yang sama, tepinya dibaurkan)
-// yang digerakkan sedikit dengan CSS agar satwa tampak bernapas, + kanvas tipis untuk air, percikan dan serbuk cahaya.
-// Tidak ada pustaka, tidak ada model 3D: ±15 lapisan kecil dan satu kanvas. Berhenti saat tak terlihat.
+// Teknik (v1.1): lukisan digambar ulang seluruhnya dengan geometri di js/rimba-geo.js (tanpa berkas gambar):
+// tiap satwa, pohon, air terjun dan langit adalah kurva dan rumus yang bergerak di satu kanvas.
+// Berkas ini mengurus yang di atasnya: titik sentuh, gelembung ucapan, semprotan gajah, kunang-kunang, suara.
+// Kalau kanvas gagal, lukisan asli (assets/rimba.webp) tampil sebagai cadangan.
 //
 // mountScene(el, ctx) -> { destroy() }   (kontrak ada di SPEC.md)
 
+import { mountRimba } from './rimba-geo.js';
+
 const IMG = 'assets/rimba.webp';
 const IMG_SMALL = 'assets/rimba-kecil.webp';
-const RATIO = 1614 / 1200;      // tinggi / lebar lukisan
+const RATIO = 1600 / 1200;      // tinggi / lebar lukisan
 
 // Koordinat dalam persen terhadap lukisan (x dari kiri, y dari atas; rx/ry = jari-jari tambalan).
-const PATCHES = [
-  { id: 'orang', x: 14, y: 7, rx: 13, ry: 8, anim: 'napas', o: '50% 85%' },
-  { id: 'beo', x: 32, y: 12, rx: 7, ry: 4.5, anim: 'angguk', o: '60% 90%', d: 1.1 },
-  { id: 'macan', x: 18, y: 24.5, rx: 9, ry: 5, anim: 'napas', o: '50% 90%', d: 2.3 },
-  { id: 'kuskus', x: 77, y: 3.5, rx: 6, ry: 3.5, anim: 'toleh', o: '50% 90%', d: 0.7 },
-  { id: 'kakatua', x: 77, y: 17, rx: 5, ry: 6, anim: 'angguk', o: '50% 95%', d: 1.9 },
-  { id: 'cendera', x: 49, y: 31, rx: 19, ry: 8, anim: 'kepak', o: '50% 70%' },
-  { id: 'tarsius', x: 90, y: 32, rx: 6.5, ry: 5, anim: 'toleh', o: '50% 80%', d: 3.1 },
-  { id: 'orang2', x: 91, y: 45.5, rx: 9, ry: 7, anim: 'napas', o: '50% 90%', d: 1.6 },
-  { id: 'gajah', x: 67, y: 46.5, rx: 11.5, ry: 8.5, anim: 'angguk', o: '85% 85%', d: 0.4 },
-  { id: 'harimau', x: 21.5, y: 52, rx: 11, ry: 7, anim: 'napas', o: '50% 90%', d: 0.9 },
-  { id: 'kanguru', x: 10, y: 69, rx: 7, ry: 6, anim: 'napas', o: '50% 90%', d: 2.8 },
-  { id: 'komodo', x: 26, y: 69.5, rx: 7, ry: 4.5, anim: 'toleh', o: '30% 90%', d: 2.0 },
-  { id: 'rusa', x: 19, y: 83, rx: 8, ry: 7, anim: 'napas', o: '50% 95%', d: 1.3 },
-  { id: 'badak', x: 82, y: 84, rx: 12, ry: 8, anim: 'napas', o: '50% 95%', d: 0.2 },
-  { id: 'kura', x: 73, y: 92, rx: 6, ry: 3.2, anim: 'geser', o: '50% 50%', d: 0.5 },
-  { id: 'katak', x: 33, y: 91, rx: 3.2, ry: 2.2, anim: 'lompat', o: '50% 100%', d: 4.0 },
-];
+const PATCHES = [];   // v1.0 memakai tambalan gambar; sekarang satwa digerakkan oleh rimba-geo.js
 
-// Titik sentuh: satwa -> fungsi aplikasi.
+// Titik sentuh: satwa -> fungsi aplikasi. Koordinat dalam persen terhadap lukisan (x dari kiri, y dari atas, r = jari-jari).
 const SPOTS = [
-  { id: 'gajah', x: 66, y: 45, r: 9.5, label: 'Gajah: kabar peluang terbaru', patch: 'gajah' },
-  { id: 'orang', x: 14, y: 7, r: 9, label: 'Orangutan: sapa dan lelucon', patch: 'orang' },
-  { id: 'cendera', x: 49, y: 31, r: 9, label: 'Cenderawasih: pengingat belajar', patch: 'cendera' },
-  { id: 'harimau', x: 21, y: 52, r: 9, label: 'Harimau: tenggat terdekat', patch: 'harimau' },
-  { id: 'tarsius', x: 90, y: 32, r: 6, label: 'Tarsius: bacaan hari ini', patch: 'tarsius' },
-  { id: 'kakatua', x: 77, y: 17, r: 6, label: 'Kakatua: petuah lapangan', patch: 'kakatua' },
-  { id: 'komodo', x: 26, y: 69, r: 6, label: 'Komodo: penjaga berkas', patch: 'komodo' },
-  { id: 'kura', x: 73, y: 92, r: 6, label: 'Kura-kura: atur tenaga hari ini', patch: 'kura' },
-  { id: 'katak', x: 33, y: 91, r: 4.5, label: 'Katak: suara rimba', patch: 'katak' },
-  { id: 'air', x: 45.5, y: 71, r: 6.5, label: 'Air terjun: arus hari ini' },
+  { id: 'gajah', x: 69.2, y: 46.3, r: 8, label: 'Gajah: kabar peluang terbaru' },
+  { id: 'orang', x: 15, y: 7, r: 7.5, label: 'Orangutan: sapa dan lelucon' },
+  { id: 'cendera', x: 50, y: 29.5, r: 9, label: 'Cenderawasih: pengingat belajar' },
+  { id: 'harimau', x: 22, y: 51.3, r: 7.5, label: 'Harimau: tenggat terdekat' },
+  { id: 'tarsius', x: 90, y: 31.3, r: 5.5, label: 'Tarsius: bacaan hari ini' },
+  { id: 'kakatua', x: 77.1, y: 17.5, r: 5, label: 'Kakatua: petuah lapangan' },
+  { id: 'komodo', x: 26.7, y: 69.4, r: 5, label: 'Komodo: penjaga berkas' },
+  { id: 'kura', x: 73.3, y: 92.5, r: 5, label: 'Kura-kura: atur tenaga hari ini' },
+  { id: 'katak', x: 33.8, y: 90.3, r: 4, label: 'Katak: suara rimba' },
+  { id: 'air', x: 46.3, y: 71.3, r: 6, label: 'Air terjun: arus hari ini' },
 ];
 
-const FALL = { x0: 41, x1: 50.5, y0: 60.5, y1: 80.5 };   // air terjun di lukisan
-const POOL = { x: 46, y: 89, rx: 12, ry: 5 };
-const TRUNK = { x: 61.5, y: 35 };                        // ujung belalai
+const FALL = { x0: 41.8, x1: 50.2, y0: 60.5, y1: 81.6 };   // air terjun di lukisan
+const POOL = { x: 48, y: 90, rx: 12, ry: 5 };
+const TRUNK = { x: 62.3, y: 34.3 };                      // ujung belalai
 
 const PETUAH = [
   'Catat dulu, tafsir belakangan. Ingatan itu informan yang paling tidak bisa dipercaya.',
@@ -76,7 +62,7 @@ export function mountScene(el, ctx = {}) {
   el.classList.add('rimba-wrap');
   el.innerHTML = `
     <div class="rimba" role="group" aria-label="Lukisan rimba yang bisa disentuh. Tiap satwa membuka sesuatu.">
-      <img class="rimba-img" src="${IMG_SMALL}" alt="Lukisan cat air: hutan dengan air terjun di tengah, dikelilingi orangutan, gajah, harimau, cenderawasih, badak dan satwa langka lain." decoding="async">
+      <div class="rimba-geo-host"></div>
       <div class="rimba-patches" aria-hidden="true"></div>
       <canvas class="rimba-fx" aria-hidden="true"></canvas>
       <div class="rimba-burung" aria-hidden="true">
@@ -100,39 +86,23 @@ export function mountScene(el, ctx = {}) {
     </div>`;
 
   const root = el.querySelector('.rimba');
-  const img = root.querySelector('.rimba-img');
   const patchBox = root.querySelector('.rimba-patches');
   const cv = root.querySelector('.rimba-fx');
   const g = cv.getContext('2d');
   const spotBox = root.querySelector('.rimba-spots');
   const bubble = root.querySelector('.rimba-bubble');
   const bird = root.querySelector('.rimba-burung');
+  const patchEls = [];
 
-  // gambar besar menyusul setelah yang kecil tampil
-  let imgUrl = IMG_SMALL;
-  const big = new Image();
-  big.onload = () => { if (!alive) return; imgUrl = IMG; img.src = IMG; patchEls.forEach(p => p.el.style.backgroundImage = `url(${IMG})`); };
-  big.src = IMG;
-
-  /* ---------- tambalan bernapas ---------- */
-  const patchEls = PATCHES.map(p => {
-    const d = document.createElement('div');
-    d.className = 'patch a-' + p.anim;
-    d.dataset.id = p.id;
-    d.style.left = (p.x - p.rx) + '%'; d.style.top = (p.y - p.ry) + '%';
-    d.style.width = (p.rx * 2) + '%'; d.style.height = (p.ry * 2) + '%';
-    d.style.transformOrigin = p.o || '50% 50%';
-    d.style.animationDelay = (-(p.d || 0) * 1.7) + 's';
-    d.style.backgroundImage = `url(${imgUrl})`;
-    patchBox.appendChild(d);
-    return { p, el: d };
-  });
-  const patchOf = id => (patchEls.find(x => x.p.id === id) || {}).el;
-  function react(id) {
-    const d = patchOf(id); if (!d) return;
-    d.classList.remove('aksi'); void d.offsetWidth; d.classList.add('aksi');
-    later(() => d.classList.remove('aksi'), 900);
+  /* ---------- lukisan geometri ---------- */
+  const host = root.querySelector('.rimba-geo-host');
+  let geo = null;
+  try { geo = mountRimba(host, { maxDpr: 2, maxPx: 1500, fps: 40 }); }
+  catch (e) {
+    console.error('rimba-geo', e);
+    host.innerHTML = `<img class="rimba-img" src="${IMG}" alt="Lukisan cat air: hutan dengan air terjun di tengah, dikelilingi satwa langka." decoding="async">`;
   }
+  function react(id) { if (geo) geo.poke(id); }
 
   /* ---------- titik sentuh ---------- */
   SPOTS.forEach(s => {
@@ -235,7 +205,7 @@ export function mountScene(el, ctx = {}) {
     },
     katak() { react('katak'); toggleSound(); say('katak', `<b>Katak:</b> ${soundOn ? 'kung… kung… suara rimba menyala. Pejamkan mata sebentar.' : 'baik, aku diam dulu.'}`, { hold: 5000 }); },
     air() {
-      ripple(POOL.x, POOL.y, 3);
+      ripple(POOL.x, POOL.y, 3); react('air');
       const s = ctx.streak || 0;
       say('air', `<b>Air terjun:</b> ${s ? `sudah <b>${s}</b> hari kamu mengalir.` : 'hari ini mulai dari tetes pertama.'} Air tidak pernah memaksa batu, tapi selalu sampai.`, { hold: 8000 });
     },
@@ -293,7 +263,7 @@ export function mountScene(el, ctx = {}) {
   }
   function seed() {
     drops.length = 0; motes.length = 0;
-    for (let i = 0; i < 26; i++) drops.push(newDrop(true));
+    
     for (let i = 0; i < 12; i++) motes.push({ x: Math.random(), y: Math.random() * 0.9, r: 0.6 + Math.random() * 1.4, p: Math.random() * 6.28, s: 0.2 + Math.random() * 0.5 });
   }
   function newDrop(anywhere) {
@@ -325,12 +295,6 @@ export function mountScene(el, ctx = {}) {
       g.strokeStyle = `rgba(255,255,255,${d.a})`; g.lineWidth = 1.1;
       g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + d.l / 100 * H); g.stroke();
     }
-    // kabut di kaki air terjun
-    const mx = (FALL.x0 + FALL.x1) / 200 * W, my = FALL.y1 / 100 * H, mr = W * 0.07;
-    const mg = g.createRadialGradient(mx, my, 0, mx, my, mr);
-    mg.addColorStop(0, `rgba(255,255,255,${0.20 + 0.06 * Math.sin(ts / 700)})`); mg.addColorStop(1, 'rgba(255,255,255,0)');
-    g.fillStyle = mg; g.beginPath(); g.arc(mx, my, mr, 0, 6.3); g.fill();
-
     // riak kolam
     ringClock += dt;
     if (ringClock > 2.6) { ringClock = 0; ripple(POOL.x - 6 + Math.random() * 12, POOL.y - 3 + Math.random() * 7); }
@@ -450,6 +414,7 @@ export function mountScene(el, ctx = {}) {
   return {
     destroy() {
       alive = false; cancelAnimationFrame(raf);
+      if (geo) { try { geo.destroy(); } catch (_) {} geo = null; }
       timers.forEach(clearTimeout); timers.clear();
       if (ro) ro.disconnect(); else window.removeEventListener('resize', resize);
       if (io) io.disconnect();

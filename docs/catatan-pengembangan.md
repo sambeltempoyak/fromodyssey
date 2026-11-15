@@ -33,3 +33,9 @@ Node: analyser (11 kasus), classifier (21 kasus), logika sesi Code.gs (dengan Ut
 
 ## Jebakan
 Sama dengan Cornelieur: jangan unggah zip-nya; jangan tambah workflow kedua; jangan "Re-run jobs" pada run lama; skrip Apps Script perlu "New version" setiap berubah; jangan ganti nama kunci penyimpanan, id pelajaran, id peluang.
+
+## 2026-11-15 · v1.1 · Rimba digambar ulang dengan geometri
+- Beranda tidak lagi memakai gambar lukisan. `js/rimba-geo.js` menggambar ulang Multispesies seluruhnya dengan kurva dan rumus di satu kanvas: 21 satwa, pohon, bunga, langit, air terjun, kolam; semuanya bergerak dan bereaksi saat disentuh.
+- `js/scene.js` kini hanya mengurus lapisan di atasnya (titik sentuh, gelembung, semprotan gajah, kunang-kunang, suara). Koordinat titik sentuh disesuaikan, rasio lukisan 3:4.
+- `assets/rimba.webp` tetap ada sebagai cadangan bila kanvas gagal.
+- Belum diuji di ponsel sungguhan; di peramban uji tanpa kartu grafis ±40 bingkai/detik.

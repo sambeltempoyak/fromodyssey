@@ -1,6 +1,6 @@
 /* Beranda "Rimba": lukisan yang hidup. Lihat js/scene.js */
 .rimba-wrap{margin:0 auto 18px;max-width:600px}
-.rimba{position:relative;width:100%;aspect-ratio:1200/1614;border-radius:20px 20px 20px 8px;overflow:hidden;
+.rimba{position:relative;width:100%;aspect-ratio:1200/1600;border-radius:20px 20px 20px 8px;overflow:hidden;
   background:#9cc9c0;box-shadow:0 2px 4px rgba(20,40,30,.12),0 18px 40px rgba(20,60,50,.22);isolation:isolate;
   -webkit-tap-highlight-color:transparent;user-select:none}
 .rimba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -41,7 +41,10 @@ html[data-theme=dark] .rimba::after{content:"";position:absolute;inset:0;z-index
 @keyframes b-ekor{from{transform:rotate(-5deg)}to{transform:rotate(7deg)}}
 
 /* titik sentuh */
-.rimba-spots{position:absolute;inset:0;z-index:5}
+.rimba-spots{position:absolute;inset:0;z-index:5;pointer-events:none}
+.spot{pointer-events:auto}
+.rimba-geo-host{position:absolute;inset:0}
+html[data-theme=dark] .rimba-geo-host{filter:brightness(.62) saturate(.9) hue-rotate(-8deg)}
 .spot{position:absolute;aspect-ratio:1;transform:translate(-50%,-50%);min-width:44px;border:0;padding:0;margin:0;background:none;border-radius:50%;cursor:pointer;color:inherit}
 .spot i{position:absolute;inset:12%;border-radius:50%;border:2px solid rgba(255,255,255,0);transition:border-color .25s,background .25s,box-shadow .25s}
 .spot:hover i,.spot:focus-visible i{border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.12);box-shadow:0 0 0 4px rgba(34,117,110,.35)}
