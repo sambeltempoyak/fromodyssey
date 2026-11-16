@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-15T22:48:00+00:00",
- "count": 4,
- "sources": 3,
+ "updated": "2026-11-16T22:55:30+00:00",
+ "count": 5,
+ "sources": 2,
  "report": [
   {
    "name": "FundsforNGOs — tag Indonesia",
@@ -35,12 +35,12 @@
   },
   {
    "name": "Scholars4Dev — beasiswa untuk negara berkembang",
-   "count": 2,
+   "count": 0,
    "ok": true,
    "error": "",
    "read": 10,
    "dropped_admin": 0,
-   "dropped_irrelevant": 8
+   "dropped_irrelevant": 10
   },
   {
    "name": "HASTAC — jobs & opportunities",
@@ -59,12 +59,12 @@
   },
   {
    "name": "EASA — jobs & calls",
-   "count": 2,
+   "count": 3,
    "ok": true,
    "error": "",
    "read": 9,
    "dropped_admin": 0,
-   "dropped_irrelevant": 7
+   "dropped_irrelevant": 6
   },
   {
    "name": "H-Net Job Guide",
@@ -92,6 +92,22 @@
   }
  ],
  "items": [
+  {
+   "id": "refd941344ab6",
+   "title": "Launching ANTART monthly gatherings!",
+   "link": "https://easaonline.org/networks/anthropology-and-the-arts/launching-antart-monthly-gatherings/",
+   "org": "",
+   "source": "EASA — jobs & calls",
+   "type": "grant",
+   "summary": "Dear ANTART Community, As the new convening team of the EASA Anthropology and the Arts (ANTART) Network, we would like to create more opportunities for our community to meet, exchange ideas, learn from one another, and get to know each other’s work. We are therefore excited to launch a new series of monthly online ANTART gatherings, taking place throughout the year, usually on the second or third Friday of each month at 10:00 AM (CEST). Rather than a formal seminar series, we envision these gatherings as an informal and welcoming space for sharing research, artistic practices, methods, works in progress, publications, projects, and questions related to anthropology and the arts. Each gathering will feature one or more short presentations, followed by time for conversation and exchange. If you would like to present, share a project or publication, or bring an idea or question for discussi",
+   "published": "2026-11-16",
+   "deadline": null,
+   "intl": null,
+   "location": "",
+   "first_seen": "2026-11-16",
+   "amount": "",
+   "applicant": null
+  },
   {
    "id": "rf60ddd4e1273",
    "title": "Top 10+ International Scholarships offered by Global Organizations, Institutions, and Foundations",
