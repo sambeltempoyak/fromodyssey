@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15",
+ "updated": "2026-11-19",
  "funders": [
   {
    "id": "lpdp-doktor-luar-negeri",
@@ -9,15 +9,16 @@
    "applicant": "individu",
    "region": "Indonesia",
    "url": "https://lpdp.kemenkeu.go.id/",
-   "opens": "2026: Tahap 1 awal tahun, Tahap 2 dibuka 30 Jun–31 Jul 2026. Jadwal 2027 belum diumumkan, cek laman resmi.",
+   "opens": "2026: Tahap 1 awal tahun, Tahap 2 30 Jun-31 Jul 2026; Co-Funding (UQ, UC Davis, WashU, dll.) 28 Okt-1 Des 2026. Jadwal 2027 belum diumumkan (per 7 Nov 2026); pola lama Tahap 1 sekitar Januari. Cek laman resmi.",
    "closeMonths": [
-    7
+    7,
+    12
    ],
    "amount": "Cek laman resmi untuk nilai tunjangan per skema.",
    "eligibility": "WNI, S2 lulus; wajib kembali ke Indonesia setelah studi. Dengan LoA unconditional, sertifikat bahasa Inggris dibebaskan; tanpa LoA, untuk luar negeri non-afirmasi boleh Duolingo. Seleksi: berkas, tes potensi akademik, wawancara.",
    "why": "Jalur ke S3 luar negeri tanpa kampus mitra; Leiden CADS bahkan punya bench fee tetap untuk penerima LPDP.",
-   "notes": "Sumber tanggal: berita Katadata (laman LPDP memblokir akses otomatis), jadi cek langsung. 2026: kuota STEM minimal 80 persen, SHARE (sosial-humaniora-seni) maksimal 20 persen, jadi antropologi bersaing di kuota kecil. Skema afirmasi (mis. Papua) punya syarat khusus; reguler/non-afirmasi paling mungkin untuk Berta. Jalur 'doctor by research' (Talenta Riset dan Inovasi Nasional) ada, syarat detail belum dibaca.",
-   "verified": "2026-11-15"
+   "notes": "Sumber tanggal: berita Katadata (laman LPDP memblokir akses otomatis), jadi cek langsung. 2026: kuota STEM minimal 80 persen, SHARE (sosial-humaniora-seni) maksimal 20 persen, jadi antropologi bersaing di kuota kecil. Skema afirmasi (mis. Papua) punya syarat khusus; reguler/non-afirmasi paling mungkin untuk Berta. Jalur 'doctor by research' (Talenta Riset dan Inovasi Nasional) ada, syarat detail belum dibaca. Tambahan 19 Nov 2026 (dari berita, laman resmi belum bisa dibuka): Co-Funding doktoral UQ (48 bulan) tenggat 1 Des 2026, syarat umum IPK 3,25, usia maks 47; bidang UQ tidak dirinci, cek laman resmi.",
+   "verified": "2026-11-19"
   },
   {
    "id": "australia-awards-indonesia",
@@ -54,7 +55,7 @@
    "eligibility": "Terdaftar atau melamar program HDR ANU; minimal Honours H1 atau setara; seleksi berdasarkan prestasi akademik, potensi riset, laporan referee, bahasa Inggris. Laporan referee harus masuk sebelum tenggat.",
    "why": "Dia sudah kenal ANU dan Planetary Futures; jalur beasiswa ANU sendiri sudah jelas.",
    "notes": "Laman College of Systems & Society (bukan College of Asia & the Pacific) menyebut Ronde 2 ditutup 15 April untuk mulai sebelum 31 Agustus; laman beasiswa pusat tidak memuat tanggal Ronde 2, jadi cek tanggal di college/sekolah yang dituju. Laman School of Culture, History & Language dan School of Archaeology and Anthropology belum dibuka. Tidak ditemukan dukungan khusus Indonesia Project di sesi ini.",
-   "verified": "2026-11-15"
+   "verified": "2026-11-19"
   },
   {
    "id": "anu-agrtp",
@@ -267,8 +268,8 @@
    "amount": "USD 20.000 per tahun, bisa diperpanjang hingga dua tahun lagi; ada kemungkinan tambahan satu tahun untuk penulisan.",
    "eligibility": "Dari negara dengan kesempatan pelatihan antropologi lanjutan yang terbatas; negara berpenghasilan tinggi tidak diterima; tidak boleh untuk kuliah antropologi di universitas di negara sendiri (kampus tuan rumah bisa di mana saja). Perlu sponsor tuan rumah dan sponsor dari negara asal.",
    "why": "Dirancang untuk calon antropolog dari negara seperti Indonesia yang mau PhD di luar negeri.",
-   "notes": "Tenggat 1 Maret untuk fellowship tahun akademik berikutnya; keputusan paling lambat 1 Mei; sekitar 5 fellow per tahun. Halaman terakhir diubah 9 Nov 2026, isi perubahannya tidak disebut. Cek apakah Indonesia termasuk (halaman tidak mencantumkan daftar negara).",
-   "verified": "2026-11-15"
+   "notes": "Laman panduan 19 Nov 2026: tidak menyebut tanggal tutup; sponsor diminta memastikan surat masuk sekitar 1 Maret. Pelamar harus sedang menempuh doktor antropologi dan punya sponsor kampus tuan rumah dan negara asal; tanpa batas kebangsaan tertulis, tapi diharapkan kembali ke negara asal. Cek apakah Indonesia termasuk dan tanggal pastinya di laman resmi.",
+   "verified": "2026-11-19"
   },
   {
    "id": "wenner-gren-dfg",
@@ -452,13 +453,16 @@
    "applicant": "lembaga",
    "region": "Global",
    "url": "https://www.culturalsurvival.org/",
-   "opens": "Cek laman resmi.",
-   "closeMonths": [],
-   "amount": "Cek laman resmi.",
-   "eligibility": "Organisasi yang dipimpin masyarakat adat; cek laman resmi.",
+   "opens": "Siklus 2027 sudah ditutup: Indigenous Community Media 9 Agustus 2026; Indigenous Youth Fellowship 25 Oktober 2026 (usia 18-28, USD 2.500-5.000). Siklus berikutnya biasanya serupa, cek laman resmi.",
+   "closeMonths": [
+    8,
+    10
+   ],
+   "amount": "Youth Fellowship USD 2.500-5.000; media komunitas: cek panduan.",
+   "eligibility": "Kelompok yang dipimpin masyarakat adat (radio komunitas, jejaring komunikator, media adat); wilayah memenuhi syarat termasuk Indonesia. Youth Fellowship untuk individu adat usia 18-28.",
    "why": "Untuk komunitas adat mitra Sokola.",
-   "notes": "Halaman program tidak bisa dibuka; belum diverifikasi.",
-   "verified": null
+   "notes": "Dibuka 19 Nov 2026: panggilan 2027 sudah tutup. Berta sendiri tidak memenuhi syarat Youth Fellowship; relevan lewat mitra komunitas adat Sokola.",
+   "verified": "2026-11-19"
   },
   {
    "id": "seasrep",

@@ -1,31 +1,31 @@
 {
- "updated": "2026-11-15",
- "count": 11,
+ "updated": "2026-11-19",
+ "count": 12,
  "items": [
   {
-   "id": "scout-minaret-uzh-dc7",
-   "title": "PhD antropologi hukum: Religious, Customary and State Law (MINARET, Zurich)",
-   "link": "https://jobs.uzh.ch/job-vacancies/phd-position-within-the-horizons-project-minaret-a-sociology-of-post-imperial-islamic-legal-cultures-insights-from-central-asia-the-middle-east-north-africa-and-southeast-asia/49c0edfe-ce8e-4467-bc35-1458b8c5f9da",
-   "org": "Universitas Zurich (jejaring MSCA MINARET)",
-   "source": "ditemukan scout mingguan",
+   "id": "scout-lpdp-cofunding-uq-2026",
+   "title": "LPDP Co-Funding Doktoral 2026: University of Queensland (dan kampus mitra lain)",
+   "org": "LPDP bersama University of Queensland",
+   "link": "https://lpdp.kemenkeu.go.id/",
+   "source": "scout mingguan",
    "type": "phd",
-   "summary": "Posisi PhD di bawah Prof. Peter Finke (antropologi sosial) tentang interaksi hukum agama, adat, dan negara; lokasi lapangan bisa Asia Tenggara, Timur Tengah, atau Asia Tengah. Mulai 1 Agustus 2027. Pelamar: MA antropologi, belum bergelar doktor, pengalaman riset penuh waktu maksimal 4 tahun, dan belum tinggal/bekerja di Swiss lebih dari 12 bulan dalam 36 bulan terakhir.",
-   "published": null,
-   "deadline": "2027-01-31",
-   "intl": true,
-   "location": "Zurich, Swiss",
-   "first_seen": "2026-11-15",
-   "amount": "Gaji kompetitif (angka tidak disebut) + dana lapangan, publikasi, konferensi",
+   "summary": "Skema co-funding LPDP membuka pendaftaran doktoral ke kampus mitra, termasuk University of Queensland (Australia, hingga 48 bulan; bidang disebut mencakup humaniora menurut satu sumber berita). Pendaftaran 28 Oktober sampai 1 Desember 2026, seleksi administrasi Desember, substansi Januari-Februari 2027. Syarat umum di berita: IPK minimal 3,25, usia maksimal 47, IELTS 6,5 untuk UQ. Rincian ditulis dari berita; laman resmi LPDP belum bisa dibuka.",
+   "published": "2026-10-28",
+   "deadline": "2026-12-01",
+   "intl": null,
+   "location": "Australia",
+   "first_seen": "2026-11-19",
+   "amount": "Biaya kuliah, hidup bulanan, riset, dan tunjangan lain sesuai ketentuan skema (cek)",
    "applicant": "individu",
-   "why": "Hukum adat dan negara di Asia Tenggara nyambung dengan kerjanya soal masyarakat adat, dan posisinya bergaji.",
+   "why": "Tenggat sangat dekat dan UQ punya jalur sosial-humaniora; cocok dengan keinginan PhD di Australia lewat beasiswa yang bisa dibawa sendiri.",
    "steps": [
-    "Baca iklan lengkap dan pastikan syarat mobilitas Swiss terpenuhi",
-    "Tulis rencana riset (maks 2.000 kata) yang mengangkat adat di lapangan Asia Tenggara",
-    "Siapkan surat lamaran (maks 1.000 kata), CV, writing sample, ijazah, dua referee",
-    "Kirim lewat jobs.uzh.ch sebelum 31 Januari 2027",
-    "Cek juga posisi MINARET lain yang berfokus Indonesia (Granada, Birmingham, UWE, Denmark Selatan, Lund), tenggat sama"
+    "Cek hari ini di laman resmi LPDP apakah bidang antropologi/humaniora di UQ memang dibuka",
+    "Cari calon pembimbing di UQ (antropologi, ARC/AIATSIS, kajian masyarakat adat) dan minta surat dukungan",
+    "Siapkan skor bahasa Inggris (IELTS 6,5 atau setara) dan transkrip S2 ANU",
+    "Daftar ke UQ dan ke LPDP sebelum 1 Desember 2026 (pendaftaran dua jalur)",
+    "Kalau tidak sempat, catat tahap 1 LPDP 2027 yang biasanya dibuka Januari"
    ],
-   "checked": "2026-11-15"
+   "checked": "2026-11-19"
   },
   {
    "id": "scout-fulbright-phd-2027",
@@ -53,6 +53,81 @@
    "checked": "2026-11-15"
   },
   {
+   "id": "scout-manchester-socanth-2027",
+   "title": "PhD Social Anthropology, University of Manchester (masuk September 2027)",
+   "org": "University of Manchester",
+   "link": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/list/03205/phd-social-anthropology/all-content/",
+   "source": "scout mingguan",
+   "type": "phd",
+   "summary": "Program PhD antropologi sosial di Manchester, masuk September 2027. Untuk ikut kompetisi pendanaan internal (termasuk studentship School of Social Sciences), aplikasi lengkap harus masuk 1 Desember 2026; pelamar dengan dana eksternal bisa sampai 30 Juni 2027. Perlu proposal 1.500 kata, dua referee, wawancara, IELTS 7.0. Besaran beasiswa tidak dicantumkan di laman program, jadi cek basis data pendanaan.",
+   "published": null,
+   "deadline": "2026-12-01",
+   "intl": true,
+   "location": "Inggris",
+   "first_seen": "2026-11-19",
+   "amount": "",
+   "applicant": "individu",
+   "why": "Departemen antropologi sosial besar yang terbuka untuk pelamar internasional, dan tenggat Desember masih sempat untuk jalur beasiswa.",
+   "steps": [
+    "Baca laman pendanaan Manchester dan tandai beasiswa yang mau dipertimbangkan",
+    "Hubungi calon pembimbing dulu karena sebagian beasiswa perlu nominasi pembimbing",
+    "Tulis proposal 1.500 kata (soal tanah adat, kolonial dan pascakolonial) dan siapkan transkrip, CV, dua referee",
+    "Ambil IELTS (7.0 keseluruhan, 7.0 menulis) bila belum punya",
+    "Kirim aplikasi lengkap sebelum 1 Desember 2026 untuk masuk kompetisi dana"
+   ],
+   "checked": "2026-11-19"
+  },
+  {
+   "id": "scout-wadsworth-2027",
+   "title": "Wenner-Gren Wadsworth International Fellowship, putaran Maret 2027",
+   "link": "https://wennergren.org/program/wadsworth-international-fellowships/",
+   "org": "Wenner-Gren Foundation",
+   "source": "ditemukan scout mingguan",
+   "type": "phd",
+   "summary": "Fellowship Wenner-Gren untuk calon antropolog dari negara dengan kesempatan pelatihan antropologi lanjutan yang terbatas: hingga USD 20.000 per tahun untuk studi doktoral di luar negeri, dapat diperpanjang. Pelamar sedang menempuh PhD antropologi dan perlu sponsor di kampus tuan rumah serta sponsor di negara asal. Tanggal tutup tidak tertulis jelas di panduan; laman menyebut surat sponsor dikonfirmasi sekitar 1 Maret, jadi cek.",
+   "published": null,
+   "deadline": null,
+   "intl": true,
+   "location": "Global (kampus tuan rumah di mana saja)",
+   "first_seen": "2026-11-15",
+   "amount": "USD 20.000 per tahun, perpanjangan hingga 2 tahun lagi",
+   "applicant": "individu",
+   "why": "Dirancang untuk calon antropolog dari Indonesia; menutup tiga tahun PhD bersama beasiswa universitas.",
+   "steps": [
+    "Cek laman resmi: tanggal tutup pasti dan apakah Indonesia termasuk negara yang memenuhi syarat",
+    "Dapatkan surat penerimaan atau tempat PhD di kampus tuan rumah, karena pelamar harus sedang menempuh doktor antropologi",
+    "Minta kesediaan sponsor kampus tuan rumah dan sponsor di Indonesia (cek mulai Desember)",
+    "Siapkan portal Wenner-Gren yang biasanya dibuka sekitar dua bulan sebelum tenggat",
+    "Kirim dan pastikan surat sponsor masuk sebelum tenggat"
+   ],
+   "checked": "2026-11-19"
+  },
+  {
+   "id": "scout-minaret-uzh-dc7",
+   "title": "PhD antropologi hukum: Religious, Customary and State Law (MINARET, Zurich)",
+   "link": "https://jobs.uzh.ch/job-vacancies/phd-position-within-the-horizons-project-minaret-a-sociology-of-post-imperial-islamic-legal-cultures-insights-from-central-asia-the-middle-east-north-africa-and-southeast-asia/49c0edfe-ce8e-4467-bc35-1458b8c5f9da",
+   "org": "Universitas Zurich (jejaring MSCA MINARET)",
+   "source": "ditemukan scout mingguan",
+   "type": "phd",
+   "summary": "PhD tiga tahun (36 bulan, mulai 1 Agustus 2027) di Institut Antropologi Sosial dan Studi Budaya Universitas Zurich, dalam proyek MINARET tentang budaya hukum Islam pasca-imperial, termasuk Asia Tenggara. Syarat: MA antropologi atau bidang dekat, pengalaman etnografi, bahasa Inggris tinggi. Posisi bergaji penuh; lamaran dikirim lewat email ke koordinator proyek.",
+   "published": null,
+   "deadline": "2027-01-31",
+   "intl": true,
+   "location": "Zurich, Swiss",
+   "first_seen": "2026-11-15",
+   "amount": "Gaji kompetitif (angka tidak disebut) + dana lapangan, publikasi, konferensi",
+   "applicant": "individu",
+   "why": "Hukum adat dan negara di Asia Tenggara nyambung dengan kerjanya soal masyarakat adat, dan posisinya bergaji.",
+   "steps": [
+    "Buka laman lowongan ISEK UZH dan baca syarat lengkap",
+    "Tulis rencana riset maksimal 2.000 kata yang menghubungkan Sumba/Orang Rimba dengan hukum adat dan negara",
+    "Siapkan surat lamaran, CV, contoh tulisan, salinan ijazah, dan dua referee",
+    "Siapkan pernyataan soal domisili di Swiss (diminta di daftar dokumen)",
+    "Kirim paket ke kontak yang tertera di laman sebelum 31 Januari 2027"
+   ],
+   "checked": "2026-11-19"
+  },
+  {
    "id": "scout-gates-cambridge-2027",
    "title": "Gates Cambridge Scholarship, PhD masuk 2027 (putaran internasional)",
    "link": "https://www.gatescambridge.org/apply/",
@@ -77,43 +152,19 @@
    "checked": "2026-11-15"
   },
   {
-   "id": "scout-wadsworth-2027",
-   "title": "Wenner-Gren Wadsworth International Fellowship, putaran Maret 2027",
-   "link": "https://wennergren.org/program/wadsworth-international-fellowships/",
-   "org": "Wenner-Gren Foundation",
-   "source": "ditemukan scout mingguan",
-   "type": "phd",
-   "summary": "Fellowship untuk mahasiswa dari negara dengan kesempatan pelatihan antropologi lanjutan terbatas, untuk S3 antropologi di luar negeri. Portal dibuka sekitar dua bulan sebelum tenggat (sekitar awal Januari 2027). Perlu sponsor tuan rumah dan sponsor dari negara asal; keputusan paling lambat 1 Mei. Halaman tidak mencantumkan daftar negara yang memenuhi syarat.",
-   "published": null,
-   "deadline": "2027-03-01",
-   "intl": true,
-   "location": "Global (kampus tuan rumah di mana saja)",
-   "first_seen": "2026-11-15",
-   "amount": "USD 20.000 per tahun, perpanjangan hingga 2 tahun lagi",
-   "applicant": "individu",
-   "why": "Dirancang untuk calon antropolog dari Indonesia; menutup tiga tahun PhD bersama beasiswa universitas.",
-   "steps": [
-    "Cek apakah Indonesia termasuk lewat internationalprograms@wennergren.org",
-    "Cari calon kampus tuan rumah dan sponsor di Indonesia",
-    "Pantau portal yang dibuka sekitar Januari 2027",
-    "Siapkan proposal dan kirim sebelum 1 Maret 2027"
-   ],
-   "checked": "2026-11-15"
-  },
-  {
    "id": "scout-anu-hdr-ronde-2",
    "title": "ANU: beasiswa HDR (University Research Scholarship) ronde 2 untuk mulai 2027",
    "link": "https://study.anu.edu.au/scholarships/find-scholarship/anu-university-research-scholarships",
    "org": "Australian National University",
    "source": "ditemukan scout mingguan",
    "type": "phd",
-   "summary": "Ronde 1 internasional ditutup 31 Agustus 2026. Ronde 2 tanpa formulir terpisah: pilih 'Australia: ANU - Other Scholarship' saat mendaftar HDR. Laman College of Systems & Society menyebut ronde 2 ditutup 15 April (mulai sebelum 31 Agustus); cek tanggal di college atau sekolah yang dituju.",
+   "summary": "Beasiswa riset ANU untuk HDR internasional: stipend AUD 40.475 per tahun (tarif dasar 2027) selama 3,5 tahun PhD. Ronde 2 tidak punya formulir terpisah: pilih 'Australia: ANU - Other Scholarship' saat mendaftar HDR, untuk yang mulai sebelum akhir Agustus 2027. Syarat Honours H1 atau setara. Tanggal tutup ronde 2 tidak tertulis di laman pusat, jadi cek di sekolah tujuan.",
    "published": null,
    "deadline": null,
    "intl": true,
    "location": "Canberra, Australia",
    "first_seen": "2026-11-15",
-   "amount": "AUD 40.475 per tahun (tarif dasar 2027), 3,5 tahun",
+   "amount": "AUD 40.475 per tahun (tarif dasar 2027)",
    "applicant": "individu",
    "why": "Dia sudah punya jejak di ANU lewat Planetary Futures dan bisa menyambung ke antropologi di sana.",
    "steps": [
@@ -122,31 +173,7 @@
     "Daftar admisi HDR dan pilih 'ANU - Other Scholarship'",
     "Minta referee kirim laporan 2–3 minggu sebelum tenggat"
    ],
-   "checked": "2026-11-15"
-  },
-  {
-   "id": "scout-leiden-indigenous-heritage",
-   "title": "PhD: Museums, Collections and Society, Indigenous Heritage (Leiden)",
-   "link": "https://www.academictransfer.com/en/jobs/365310/phd-candidate-museums-collections-and-society-indigenous-heritage-10-fte/",
-   "org": "Universiteit Leiden (Fakultas Arkeologi)",
-   "source": "ditemukan scout mingguan",
-   "type": "phd",
-   "summary": "Empat tahun, mulai April/Mei 2027, proyek NWO VICI tentang sejarah Mapuche dan koleksi museum Eropa. Syarat: S2 arkeologi/antropologi, pengalaman koleksi museum, bahasa Spanyol sangat baik (wajib). Wawancara akhir Januari 2027.",
-   "published": null,
-   "deadline": "2027-01-01",
-   "intl": true,
-   "location": "Leiden, Belanda",
-   "first_seen": "2026-11-15",
-   "amount": "EUR 3.204–4.051 bruto per bulan + tunjangan",
-   "applicant": "individu",
-   "why": "Kolaborasi dengan komunitas adat dan antropologi museum nyambung, tapi bahasa Spanyol wajib; lebih cocok bila dia menguasainya.",
-   "steps": [
-    "Pastikan kemampuan bahasa Spanyol memenuhi syarat",
-    "Siapkan surat motivasi 2 halaman, CV, dan dua referee dalam satu PDF",
-    "Tanya Prof. Françozo kalau ada pertanyaan proyek",
-    "Kirim lewat tombol Apply sebelum 1 Januari 2027"
-   ],
-   "checked": "2026-11-15"
+   "checked": "2026-11-19"
   },
   {
    "id": "scout-oxford-clarendon-2027",
