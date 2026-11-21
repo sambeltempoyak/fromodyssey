@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T22:55:54+00:00",
+ "updated": "2026-11-21T22:50:25+00:00",
  "count": 5,
  "sources": 2,
  "report": [
@@ -30,8 +30,8 @@
    "ok": true,
    "error": "",
    "read": 10,
-   "dropped_admin": 0,
-   "dropped_irrelevant": 10
+   "dropped_admin": 1,
+   "dropped_irrelevant": 9
   },
   {
    "name": "Scholars4Dev — beasiswa untuk negara berkembang",
