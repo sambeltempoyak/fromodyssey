@@ -39,3 +39,10 @@ Sama dengan Cornelieur: jangan unggah zip-nya; jangan tambah workflow kedua; jan
 - `js/scene.js` kini hanya mengurus lapisan di atasnya (titik sentuh, gelembung, semprotan gajah, kunang-kunang, suara). Koordinat titik sentuh disesuaikan, rasio lukisan 3:4.
 - `assets/rimba.webp` tetap ada sebagai cadangan bila kanvas gagal.
 - Belum diuji di ponsel sungguhan; di peramban uji tanpa kartu grafis ±40 bingkai/detik.
+
+## 2026-11-22 · v1.2 · Cenderawasih hitam, bukan ular
+- Makhluk hitam di samping wajah ternyata **cenderawasih hitam berekor panjang**, bukan rambut yang menjadi ular (koreksi dari Ejak). Lapisan `rambut-ular` di `js/rimba-geo.js` diganti `cenderawasih-hitam`.
+- Paruh sabit melengkung menyentuh bibir; perisai dada berkilau biru-hijau; kepala sesekali menengadah dan berkedip.
+- Sayap: 15 bulu terbang + 9 bulu penutup, tiap helai diputar sendiri. Bernapas pelan, tiap ±11 detik sayap terangkat dan bergetar (pamer), dan saat disentuh mengembang lebar lalu mengepak.
+- Ekor: dua bulu panjang berpalang putih. Teksturnya dilukis lurus sekali lalu tiap bingkai dipotong 40 ruas dan ditekuk mengikuti gelombang, jadi bulu mengalir seperti pita. Saat disentuh ekor mencambuk.
+- Titik sentuh baru di kanvas: `cenderahitam` (hanya reaksi gerak, tidak membuka fitur).

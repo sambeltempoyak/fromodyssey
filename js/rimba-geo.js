@@ -555,28 +555,132 @@ layer(31, 'perempuan', S => {
   return (ctx, t) => S.put(ctx, sp, { px: 590, py: 700, rot: 0.01 * Math.sin(t * 0.6), sx: 1.14, sy: 1.14 + 0.005 * Math.sin(t * 1.1) });
 });
 
-// ── rambut hitam yang menjadi ular bersisik perut putih ──
-layer(32, 'rambut-ular', S => {
-  const band1 = curve(P('522 646, 531 690, 528 715, 515 740, 495 770, 470 800, 447 830, 440 860, 455 890, 478 910, 492 930, 496 956'), false, 8);
-  const band2 = curve(P('420 838, 405 856, 392 886, 397 916, 415 940, 440 956'), false, 8);
-  const scutes = (g, sp, n, w, side) => { for (let i = 0; i < n; i++) { const a = along(sp, (i + 0.08) / n), b = along(sp, (i + 0.92) / n), ww = w * (0.85 + 0.3 * Math.sin(i * 0.7)), nx = -Math.sin(a[2]) * side, ny = Math.cos(a[2]) * side; const q = [[a[0], a[1]], [b[0], b[1]], [b[0] + nx * ww, b[1] + ny * ww], [a[0] + nx * ww, a[1] + ny * ww]]; wash(g, q, '#f6f6f0', { a: 0.97, blobs: 0, edge: 0, rough: 0.3 }); ink(g, q, { closed: true, w: 1.05 }); } };
-  const sp = S.sprite(370, 620, 545, 975, g => {
-    // rambut: pita gelap miring, dari tengkuk ke kiri bawah
-    const hair = blob('512 634, 524 648, 530 690, 527 716, 514 742, 494 772, 470 802, 448 832, 430 868, 404 880, 388 850, 384 800, 386 750, 396 716, 420 698, 460 688, 498 690, 500 652');
-    wash(g, hair, '#62799a', { a: 0.88, blobs: 9, dark: '#22364e', da: 0.5, edge: 0.3, rough: 2.5, light: '#b9c9da', la: 0.3 });
-    for (let i = 0; i < 40; i++) { const u = i / 40, x0 = lerp(505, 425, u) + n1(i, 3) * 14, y0 = lerp(690, 700, u) + n1(i, 7) * 8; ink(g, curve([[x0, y0], [x0 - 22 - u * 10, y0 + 46], [x0 - 52 - u * 6, y0 + 96 + n1(i, 9) * 20], [x0 - 70, y0 + 150]]), { w: 1.15, col: '#16263a', a: 0.72 }); }
-    for (let i = 0; i < 12; i++) ink(g, curve([[470 - i * 6, 694 + i * 2], [430 - i * 5, 716 + i * 4], [388 - i * 1, 742 + i * 9]]), { w: 0.9, col: '#16263a', a: 0.6 });
-    for (let i = 0; i < 7; i++) ink(g, curve([[440 - i * 7, 700 + i * 6], [410 - i * 4, 730 + i * 5], [386, 752 + i * 10]]), { w: 2.2, col: '#b5a05a', a: 0.35 });
-    // badan ular bagian bawah
-    wash(g, tube(band1.slice(52), 30).map(p => [p[0] - 9, p[1]]), '#4f6686', { a: 0.9, blobs: 3, dark: '#1c2c44', da: 0.5 });
-    wash(g, tube(band2, 16).map(p => [p[0] + 9, p[1]]), '#4f6686', { a: 0.9, blobs: 2, dark: '#1c2c44', da: 0.5 });
-    scutes(g, band1, 40, 9.5, -1); scutes(g, band2, 13, 8, 1);
-    ink(g, '500 652, 512 634, 524 648', { w: 1.5 }); ink(g, '500 652, 498 690', { w: 1.2 });
-    g.fillStyle = css('#0e1822'); g.beginPath(); g.arc(511, 646, 1.7, 0, TAU); g.fill();
+// ── cenderawasih hitam berekor panjang (bukan ular): paruh sabit menyentuh bibir, sayap mengipas, dua bulu ekor mengalir ──
+// Ekor: tiap helai dilukis lurus sekali (cat air + palang putih), lalu tiap bingkai dipotong 40 ruas
+// dan ditekuk mengikuti tulang yang bergelombang, jadi teksturnya ikut melengkung seperti pita.
+layer(32, 'cenderawasih-hitam', S => {
+  const ROOT = [472, 796], NECK = [508, 676], SHOULDER = [500, 704];
+  const plume = (ctrl, w0, w1, bars, seed) => {
+    const rest = curve(P(ctrl), false, 7), s = [0];
+    for (let i = 1; i < rest.length; i++) s.push(s[i - 1] + Math.hypot(rest[i][0] - rest[i - 1][0], rest[i][1] - rest[i - 1][1]));
+    const L = s[s.length - 1], hw = Math.max(w0, w1) / 2 + 2;
+    const wf = u => lerp(w0, w1, u) * (u > 0.86 ? Math.sqrt(Math.max(0, 1 - ((u - 0.86) / 0.14) ** 2)) * 0.85 + 0.15 : 1) * (u < 0.04 ? 0.7 + u * 7.5 : 1);
+    const tex = S.sprite(0, -hw, L, hw, g => {
+      const n = 70, top = [], bot = [];
+      for (let i = 0; i <= n; i++) { const u = i / n; top.push([u * L, -wf(u) / 2]); bot.push([u * L, wf(u) / 2]); }
+      const shape = top.concat(bot.slice().reverse());
+      wash(g, shape, '#25324a', { a: 0.96, blobs: 7, dark: '#0b111c', da: 0.6, light: '#8fb0d4', la: 0.2, edge: 0.3, rough: 0.45, seed, edgeCol: '#0b111c' });
+      for (let i = 0; i < 7; i++) { const u = 0.08 + i * 0.13; stain(g, u * L, -bars * wf(u) * 0.08, 30, wf(u) * 0.22, i % 2 ? '#5a8fbf' : '#3f9a98', 0.3); }
+      const ry = u => -bars * wf(u) * 0.12, rach = []; for (let i = 0; i <= n; i++) rach.push([i / n * L, ry(i / n)]);
+      for (let x = 3; x < L * 0.97; x += 3.2) {        // serat bulu condong ke belakang
+        const u = x / L, h = wf(u) / 2;
+        for (const sg of [-1, 1]) ink(g, [[x, ry(u)], [x - 4, ry(u) + sg * h * 0.5], [x - 7, sg * h * 0.9]], { w: 0.5, col: '#060a12', a: 0.35, wob: 0.2 });
+      }
+      ink(g, rach, { w: 1.1, col: '#cfd8e6', a: 0.45, wob: 0.3 }); ink(g, rach, { w: 0.6, col: '#060a12', a: 0.6, wob: 0.3 });
+      for (let x = 10, k = 0; x < L * 0.93; x += 9.2, k++) {   // palang putih di satu tepi, seperti di lukisan
+        const u0 = x / L, u1 = (x + 5.6) / L, h0 = wf(u0) / 2, h1 = wf(u1) / 2, inn = 0.4 + 0.08 * Math.sin(k * 1.3);
+        const q = [[x, bars * h0 * inn], [x + 5.6, bars * h1 * inn], [x + 5.6, bars * h1 * 0.97], [x, bars * h0 * 0.97]];
+        wash(g, q, '#f5f4ec', { a: 0.97, blobs: 0, edge: 0, rough: 0.25, raw: true }); ink(g, q, { closed: true, w: 0.95, col: '#0e1622', wob: 0.25 });
+      }
+      ink(g, top, { w: 1.2, col: '#0b111c', wob: 0.35 }); ink(g, bot, { w: 1.2, col: '#0b111c', wob: 0.35 });
+    });
+    return { rest, s, L, hw, tex };
+  };
+  const tails = [
+    plume('472 796, 452 820, 426 852, 406 890, 400 928, 412 962, 440 986, 474 998, 490 994', 24, 11, 1, 51),
+    plume('478 800, 474 840, 476 884, 488 922, 500 956, 504 990, 498 1006', 19, 9, -1, 52),
+  ];
+  const bend = (pl, t, o) => {
+    const r = pl.rest, n = r.length, out = [], [rx, ry] = r[0];
+    for (let i = 0; i < n; i++) {
+      const u = pl.s[i] / pl.L, a = r[Math.max(0, i - 1)], b = r[Math.min(n - 1, i + 1)];
+      let nx = -(b[1] - a[1]), ny = b[0] - a[0]; const l = Math.hypot(nx, ny) || 1;
+      const d = o.amp * u ** 1.3 * Math.sin(o.ph - u * o.k) + o.amp2 * u * u * Math.sin(o.ph * 0.43 + o.p2 - u * 2.2);
+      const x = r[i][0] + nx / l * d - rx, y = r[i][1] + ny / l * d - ry, an = o.sway * u * (2 - u), c = Math.cos(an), sn = Math.sin(an);
+      out.push([rx + x * c - y * sn + o.ox, ry + x * sn + y * c + o.oy]);
+    }
+    return out;
+  };
+  const ribbon = (ctx, pl, pts) => {
+    const c = pl.tex.c, K = S.K, pad = 8, Hh = (pl.hw + pad) * 2;
+    ctx.save(); ctx.globalAlpha = S.fade;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p = pts[i], q = pts[i + 1], dx = q[0] - p[0], dy = q[1] - p[1], len = Math.hypot(dx, dy) || 0.01, cs = dx / len, sn = dy / len;
+      const s0 = pl.s[i], s1 = pl.s[i + 1], sx = (s0 + pad) * K, sw = Math.max(1, (s1 - s0) * K + (i < pts.length - 2 ? 1.2 : 0));
+      ctx.setTransform(K * cs, K * sn, -K * sn, K * cs, K * p[0], K * p[1]);
+      ctx.drawImage(c, sx, 0, Math.min(sw, c.width - sx), c.height, 0, -pl.hw - pad, len + (i < pts.length - 2 ? 0.9 : 0), Hh);
+    }
+    ctx.restore();
+  };
+  // sayap: helai bulu terbang biru-hitam, pangkalnya kekuningan zaitun seperti sapuan di lukisan
+  const feather = (seed, col, bend, wid = 15, len = 100) => S.sprite(-4, -wid, len + 4, wid, g => {
+    const p = leafPts(0, 0, 0, len, wid, bend);
+    wash(g, p, col, { a: 0.95, blobs: 2, edge: 0.2, rough: 0.35, seed, edgeCol: '#070b12', ew: 2, dark: '#0a0f18', da: 0.45, light: '#93acd0', la: 0.18, grad: ['#a9a35a', len * 0.75, 0, 0, 0, 0.42] });
+    stain(g, len * 0.55, -bend * 8, len * 0.25, wid * 0.22, '#5d8fbf', 0.3);
+    ink(g, p, { closed: true, w: 0.85, col: '#070b12', seed, a: 0.85 });
+    const mid = []; for (let i = 0; i <= 10; i++) { const x = i * len / 10; mid.push([x, bend * len * (x / len) ** 2]); }
+    ink(g, mid, { w: 0.7, col: '#c9d3e2', a: 0.5 }); ink(g, mid, { w: 0.5, col: '#070b12', a: 0.6 });
+    for (let i = 0; i < 13; i++) { const x = len * 0.18 + i * len * 0.06, y = bend * len * (x / len) ** 2; ink(g, [[x, y - wid * 0.3], [x + 3, y - 0.5]], { w: 0.55, col: '#070b12', a: 0.55 }); }
   });
-  return (ctx, t) => S.put(ctx, sp, { px: 480, py: 960, skx: 0.012 * Math.sin(t * 0.8), rot: 0.007 * Math.sin(t * 0.55 + 1) });
+  const prim = [feather(61, '#2b3955', 0.05), feather(62, '#24304a', 0.07), feather(63, '#33445f', 0.04)];
+  const cov = [feather(64, '#1f2a40', 0.04, 20, 60), feather(65, '#2a3752', 0.06, 20, 60)];
+  const fan = (pairs, n) => { const o = []; for (let i = 0; i < n; i++) { const x = i / (n - 1) * (pairs.length - 1), k = Math.min(pairs.length - 2, Math.floor(x)), f = x - k; o.push([lerp(pairs[k][0], pairs[k + 1][0], f), lerp(pairs[k][1], pairs[k + 1][1], f)]); } return o; };
+  const PRIM = fan([[3.24, 92], [3.1, 124], [2.94, 144], [2.78, 152], [2.62, 150], [2.47, 138], [2.34, 116]], 15);
+  const COV = fan([[3.2, 62], [2.95, 74], [2.7, 76], [2.45, 66]], 9);
+  const CENTER = 2.8;
+  const body = S.sprite(440, 640, 540, 830, g => {
+    const bd = blob('512 664, 522 690, 524 716, 516 748, 502 778, 486 800, 468 812, 458 800, 462 772, 474 742, 486 712, 494 686, 500 668');
+    wash(g, bd, '#28344c', { a: 0.97, blobs: 7, dark: '#080d16', da: 0.6, light: '#86a2c8', la: 0.22, edge: 0.3, rough: 1.2, edgeCol: '#080d16' });
+    // perisai dada berkilau (biru-hijau) menghadap sang perempuan
+    stain(g, 514, 712, 12, 30, '#3fa0a0', 0.55, 0.3); stain(g, 512, 730, 9, 18, '#7fc6d8', 0.45, 0.3); stain(g, 506, 756, 10, 20, '#4f78b8', 0.4, 0.4);
+    fur(g, bd, { n: 140, len: 8, dir: (x, y) => 1.9 + (y - 740) * 0.002, col: '#060a12', a: 0.55, w: 0.7 });
+    ink(g, bd.slice(0, Math.floor(bd.length * 0.55)), { w: 1.2, col: '#060a12' });
+    for (let i = 0; i < 6; i++) ink(g, [[510 - i, 700 + i * 9], [519 - i * 1.4, 706 + i * 9]], { w: 0.6, col: '#d8f0f0', a: 0.35 });
+  });
+  const head = S.sprite(490, 618, 552, 684, g => {
+    const hd = blob('500 668, 498 652, 504 640, 516 636, 524 642, 525 654, 520 666, 512 676');
+    wash(g, hd, '#26324a', { a: 0.97, blobs: 3, dark: '#070b12', da: 0.6, light: '#8fb6d6', la: 0.25, edge: 0.3, edgeCol: '#070b12' });
+    stain(g, 510, 640, 10, 5, '#5fb0b8', 0.5);              // topi berkilau
+    fur(g, hd, { n: 40, len: 5, dir: 2.3, col: '#060a12', a: 0.5, w: 0.6 });
+    ink(g, hd, { closed: true, w: 1.1, col: '#060a12' });
+    // paruh sabit, melengkung menyentuh bibir
+    const bill = tube(curve(P('519 645, 527 636, 535 634, 541 638, 543 645'), false, 6), u => 5.4 * (1 - u) + 0.7);
+    wash(g, bill, '#1b2230', { a: 0.97, blobs: 0, rough: 0.2, edge: 0 }); ink(g, bill, { closed: true, w: 0.9, col: '#060a12' });
+    ink(g, '522 645, 530 640, 538 640', { w: 0.6, col: '#c2ccda', a: 0.6 });
+  });
+  S.spot('cenderahitam', 488, 760, 78, 'Cenderawasih hitam');
+  return (ctx, t) => {
+    const pk = S.poke('cenderahitam'), x = Math.min(1, pk / 3.4), burst = pk < 3.4 ? (1 - x) ** 1.4 : 0;
+    // pamer berkala: tiap ±11 detik sayap terangkat dan bergetar sebentar
+    const cyc = (t + 4) % 11.3, dsp = cyc < 2.4 ? Math.sin(Math.PI * cyc / 2.4) ** 2 : 0;
+    const bob = Math.sin(t * 1.3) * 1.2 + Math.sin(t * 9) * burst * 2.2;
+    // ── ekor ──
+    const tph = t * 1.7 + 4 * Math.PI * x * (2 - x);
+    tails.forEach((pl, i) => {
+      const pts = bend(pl, t, { ph: tph + i * 0.9, k: 5.2, amp: 6 + 4 * dsp + 20 * burst, amp2: 7 + 6 * burst, p2: i * 2.1, sway: 0.05 * Math.sin(t * 0.45 + i) + burst * 0.16 * Math.sin(t * 4.2 + i), ox: 0, oy: bob * 0.6 });
+      ribbon(ctx, pl, pts);
+    });
+    // ── badan ──
+    S.put(ctx, body, { px: ROOT[0], py: ROOT[1], dy: bob, rot: 0.012 * Math.sin(t * 0.8) + burst * 0.03 * Math.sin(t * 6) });
+    // ── sayap ──
+    const spread = 1 + 0.22 * dsp + 0.5 * burst, lift = 0.22 * dsp + 0.55 * burst + 0.035 * Math.sin(t * 0.9);
+    const beat = Math.sin(t * (6 + 4 * burst)) * (0.06 * dsp + 0.2 * burst), n = PRIM.length;
+    for (let i = n - 1; i >= 0; i--) {
+      const [a0, len] = PRIM[i], w = 0.6 + 0.4 * (1 - i / (n - 1));
+      const a = CENTER + (a0 - CENTER) * spread + lift + beat * w + 0.018 * Math.sin(t * 3.1 + i * 0.7) + 0.01 * Math.sin(t * 1.3 + i);
+      S.put(ctx, prim[i % 3], { px: 0, py: 0, dx: SHOULDER[0], dy: SHOULDER[1] + bob, rot: a, sx: len / 100 * (1 + 0.05 * burst), sy: 0.8 + len / 300 });
+    }
+    for (let i = COV.length - 1; i >= 0; i--) {
+      const [a0, len] = COV[i], a = CENTER + (a0 - CENTER) * (1 + (spread - 1) * 0.7) + lift * 0.8 + beat * 0.5 + 0.012 * Math.sin(t * 2.7 + i);
+      S.put(ctx, cov[i % 2], { px: 0, py: 0, dx: SHOULDER[0] + 2, dy: SHOULDER[1] + bob - 2, rot: a, sx: len / 60, sy: 0.9 });
+    }
+    // ── kepala: mengecup bibir, sesekali menengadah ──
+    const nuz = 0.035 * Math.sin(t * 0.7) + 0.05 * Math.max(0, Math.sin(t * 0.31)) ** 6 - burst * 0.12 * Math.sin(t * 7);
+    S.put(ctx, head, { px: NECK[0], py: NECK[1], dy: bob, rot: nuz });
+    const [ex, ey] = spin(NECK[0], NECK[1], nuz, 515, 648, bob);
+    eye(ctx, ex, ey, 2.1, blink(t, 7, 3.7), { ry: 0.9, iris: 0.9, pupil: 0.55, col: '#3a2a12', lw: 0.7 });
+  };
 });
-
 // ── cenderawasih ──
 layer(34, 'cenderawasih', S => {
   // satu helai bulu sayap: panjang 100 ke arah +x; dilukis sekali, diputar tiap bingkai
