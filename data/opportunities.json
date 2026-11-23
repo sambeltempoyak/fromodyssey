@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-22T22:52:35+00:00",
- "count": 5,
- "sources": 2,
+ "updated": "2026-11-23T23:00:36+00:00",
+ "count": 8,
+ "sources": 3,
  "report": [
   {
    "name": "FundsforNGOs — tag Indonesia",
@@ -35,12 +35,12 @@
   },
   {
    "name": "Scholars4Dev — beasiswa untuk negara berkembang",
-   "count": 0,
+   "count": 3,
    "ok": true,
    "error": "",
    "read": 10,
    "dropped_admin": 0,
-   "dropped_irrelevant": 10
+   "dropped_irrelevant": 7
   },
   {
    "name": "HASTAC — jobs & opportunities",
@@ -92,6 +92,54 @@
   }
  ],
  "items": [
+  {
+   "id": "r96430b6699ec",
+   "title": "Top 20+ Scholarships in Sweden for International Students",
+   "link": "https://www.scholars4dev.com/scholarships-in-sweden-for-international-students/",
+   "org": "Swedish Institute",
+   "source": "Scholars4Dev — beasiswa untuk negara berkembang",
+   "type": "grant",
+   "summary": "©iStock.com/cofkocof Until 2011, Sweden was one of the few countries in Europe where you could study for free . Students from outside the EU/EEA and Switzerland now pay application and tuition fees, which average around SEK 160,000 a year. To help with these costs, the Swedish Institute and almost every Swedish university offer scholarships in Sweden , and many of them cover tuition in full. Swedish Government Scholarships for International Students » Swedish Institute Scholarships for Global Professionals (Sweden) The Swedish Institute’s Scholarship for Global Professionals supports professionals with work and leadership experience from eligible countries who want to study a full-time Master’s degree in Sweden. It covers the full tuition fee, a monthly living allowance of SEK 12,000 and a SEK 15,000 travel grant, and 189 scholarships were awarded for 2026/27. The scholarships cover the ",
+   "published": "2026-11-23",
+   "deadline": "2027-01-15",
+   "intl": true,
+   "location": "Indonesia",
+   "first_seen": "2026-11-23",
+   "amount": "",
+   "applicant": "individu"
+  },
+  {
+   "id": "rd2d6174f76f4",
+   "title": "Geneva Academy Scholarships for LLM Programmes in International Humanitarian Law and Human Rights",
+   "link": "https://www.scholars4dev.com/geneva-academy-of-international-humanitarian-law-and-human-rights-scholarships/",
+   "org": "University of Geneva",
+   "source": "Scholars4Dev — beasiswa untuk negara berkembang",
+   "type": "grant",
+   "summary": "Geneva Academy Masters (LLM-MAS) Deadline: 17 Jan 2027 (annual) Study in: Geneva, Switzerland Course starts September 2027 Brief description: The Geneva Academy of International Humanitarian Law and Human Rights, set up in 2007 as a joint centre of the University of Geneva’s Faculty of Law and the Geneva Graduate Institute, offers a limited number of full scholarships each year for its one-year, full-time LLM–Master of Advanced Studies (MAS) programmes. The scholarships go to outstanding candidates who cannot otherwise pay the tuition fee and the cost of living in Geneva. Host Institution(s): Geneva Academy of International Humanitarian Law and Human Rights, Geneva, Switzerland Level/Field(s) of study: • LLM–MAS in International Humanitarian Law and Human Rights; • LLM–MAS in International Crimes, Justice and Human Rights (launched in 2026-27). Number of Awards: Limited; the number depen",
+   "published": "2026-11-23",
+   "deadline": "2027-01-17",
+   "intl": true,
+   "location": "Indonesia",
+   "first_seen": "2026-11-23",
+   "amount": "",
+   "applicant": "individu"
+  },
+  {
+   "id": "r8c71610bf7a8",
+   "title": "Ertegun Graduate Scholarships in the Humanities at University of Oxford",
+   "link": "https://www.scholars4dev.com/ertegun-graduate-scholarships-oxford/",
+   "org": "University of Oxford",
+   "source": "Scholars4Dev — beasiswa untuk negara berkembang",
+   "type": "phd",
+   "summary": "University of Oxford Masters/PhD Degree Deadline: 5 Jan 2027 (most courses) Study in: UK Course starts October 2027 Brief description: The Mica and Ahmet Ertegun Graduate Scholarship Programme funds full-time graduate study in the humanities at the University of Oxford. It aims to choose the very best students who will go on to become leaders in their fields. The scholarships are highly competitive, with over 1,500 applicants for around 15 awards each year. Host Institution(s): University of Oxford, UK Level/Field(s) of study: Full-time Master’s and DPhil courses run by Oxford’s Humanities Division and its faculties: • Asian and Middle Eastern Studies; Classics (including classical archaeology); English Language and Literature; Fine Art (DPhil in Contemporary Art History and Theory only); History (including History of Art and History of Architecture); Linguistics, Philology and Phonetics",
+   "published": "2026-11-23",
+   "deadline": "2027-01-05",
+   "intl": null,
+   "location": "",
+   "first_seen": "2026-11-23",
+   "amount": "£21,805",
+   "applicant": "individu"
+  },
   {
    "id": "refd941344ab6",
    "title": "Launching ANTART monthly gatherings!",
