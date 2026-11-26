@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T23:03:33+00:00",
+ "updated": "2026-11-26T23:06:35+00:00",
  "count": 8,
  "sources": 3,
  "report": [
@@ -46,7 +46,7 @@
    "name": "HASTAC — jobs & opportunities",
    "count": 0,
    "ok": false,
-   "error": "bukan feed RSS/Atom (mungkin halaman web biasa atau halaman blokir)"
+   "error": "404: alamat feed tidak ada (ganti atau matikan feed ini)"
   },
   {
    "name": "Wenner-Gren Foundation — berita",
